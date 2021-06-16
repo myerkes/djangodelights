@@ -1,5 +1,15 @@
 {% extends './base.html' %}
 
 {% block content %}
-<h1>ingredients</h1>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <ul>
+            {% for ingredient in ingredient_list %}
+                <li>{{ ingredient }}</li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
 {% endblock %}

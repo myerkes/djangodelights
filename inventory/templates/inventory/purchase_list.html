@@ -1,5 +1,13 @@
 {% extends './base.html' %}
 
 {% block content %}
-<h1>purchases</h1>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            {% for purchase in purchase_list %}
+                {{ purchase }}
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock %}
