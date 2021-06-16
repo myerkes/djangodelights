@@ -4,11 +4,25 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <ul>
-            {% for ingredient in ingredient_list %}
-                <a href="./update/{{ ingredient.pk }}"><li>{{ ingredient }} - {{ ingredient.quantity }} {{ ingredient.unit }}</li></a>
-            {% endfor %}
-            </ul>
+            <table class="table">
+                <tr>
+                    <th>Ingredient</th>
+                    <th>Quantity</th>
+                    <th>Unit</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+                
+                {% for ingredient in ingredient_list %}
+                <tr>
+                    <td>{{ ingredient }}</td>
+                    <td>{{ ingredient.quantity }}</td>
+                    <td>{{ ingredient.unit }}</td>
+                    <td><a class="btn btn-primary" href="./update/{{ ingredient.pk }}" role="button">Update</a></td>
+                    <td><a class="btn btn-primary" href="./delete/{{ ingredient.pk }}" role="button">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </table>
         </div>
     </div>
 </div>
