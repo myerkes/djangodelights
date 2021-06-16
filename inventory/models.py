@@ -10,11 +10,13 @@ class Ingredient(models.Model):
     CUPS = 'cups'
     TABLESPOONS = 'tbsp'
     TEASPOONS = 'tsp'
+    EACH = 'each'
     UNIT_CHOICES = [
         (POUNDS, 'Pounds'),
         (CUPS, 'Cups'),
         (TABLESPOONS, 'Tablespoons'),
-        (TEASPOONS, 'Teaspoons')
+        (TEASPOONS, 'Teaspoons'),
+        (EACH, 'Each')
     ]
 
     name = models.CharField(max_length=100)
