@@ -1,4 +1,5 @@
-from inventory.models import MenuItem
+from typing import List
+from inventory.models import Ingredient, MenuItem, Purchase
 from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
@@ -15,3 +16,13 @@ class MenuItemList(ListView):
     model = MenuItem
     context_object_name = 'menuitem_list'
     template_name = 'inventory/menuitem_list.html'
+
+class IngredientList(ListView):
+    model = Ingredient
+    context_object_name = 'ingredient_list'
+    template_name = 'inventory/ingredient_list.html'
+
+class PurchaseList(ListView):
+    model = Purchase
+    context_object_name = 'purchase_list'
+    template_name = 'inventory/purchase_list.html'
