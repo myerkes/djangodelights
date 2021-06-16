@@ -25,6 +25,11 @@ class MenuItemCreate(CreateView):
     template_name = 'inventory/menuitem_create_form.html'
     form_class = MenuItemCreateForm
 
+class MenuItemUpdate(UpdateView):
+    model = MenuItem
+    template_name = 'inventory/menuitem_update_form.html'
+    form_class = MenuItemUpdateForm
+
 ### Ingredient Views ###
 class IngredientList(ListView):
     model = Ingredient

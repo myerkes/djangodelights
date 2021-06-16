@@ -15,3 +15,8 @@ class MenuItemCreateForm(forms.ModelForm):
     class Meta:
         model = MenuItem
         fields = '__all__'
+
+class MenuItemUpdateForm(forms.ModelForm):
+    class Meta:
+        model = MenuItem
+        fields = '__all__'
