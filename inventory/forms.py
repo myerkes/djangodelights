@@ -1,6 +1,7 @@
 from .models import Ingredient, MenuItem, RecipeRequirement, Purchase, Order
 from django import forms
 
+### Ingredient Forms ###
 class IngredientCreateForm(forms.ModelForm):
     class Meta:
         model = Ingredient
@@ -11,6 +12,7 @@ class IngredientUpdateForm(forms.ModelForm):
         model = Ingredient
         fields = '__all__'
 
+### Menu Item Forms ###
 class MenuItemCreateForm(forms.ModelForm):
     class Meta:
         model = MenuItem

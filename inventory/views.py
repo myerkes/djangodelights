@@ -46,6 +46,11 @@ class IngredientUpdate(UpdateView):
     template_name = 'inventory/ingredient_update_form.html'
     form_class = IngredientUpdateForm
 
+class IngredientDelete(DeleteView):
+    model = Ingredient
+    template_name = 'inventory/ingredient_delete_form.html'
+    success_url = '/ingredients/'
+
 ### Purchase Views ###
 class PurchaseList(ListView):
     model = Purchase
