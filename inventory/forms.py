@@ -6,6 +6,11 @@ class IngredientCreateForm(forms.ModelForm):
         model = Ingredient
         fields = '__all__'
 
+class IngredientUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Ingredient
+        fields = '__all__'
+
 class MenuItemCreateForm(forms.ModelForm):
     class Meta:
         model = MenuItem
