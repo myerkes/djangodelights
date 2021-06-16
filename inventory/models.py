@@ -35,7 +35,7 @@ class MenuItem(models.Model):
     def __str__(self) -> str:
         return self.name
 
-class RecipeRequirements(models.Model):
+class RecipeRequirement(models.Model):
     # Represents a required amount of an ingredient for a recipe
     menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
