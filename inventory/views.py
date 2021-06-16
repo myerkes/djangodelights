@@ -8,7 +8,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
 
-from .forms import IngredientCreateForm
+from .forms import IngredientCreateForm, MenuItemCreateForm
 
 # Create your views here.
 def index(request):
@@ -18,6 +18,11 @@ class MenuItemList(ListView):
     model = MenuItem
     context_object_name = 'menuitem_list'
     template_name = 'inventory/menuitem_list.html'
+
+class MenuItemCreate(CreateView):
+    model = MenuItem
+    template_name = 'inventory/menuitem_create_form.html'
+    form_class = MenuItemCreateForm
 
 class IngredientList(ListView):
     model = Ingredient

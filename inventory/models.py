@@ -27,6 +27,9 @@ class Ingredient(models.Model):
     def __str__(self) -> str:
         return self.name
 
+    def get_absolute_url(self):
+        return '/ingredients/'
+
 class MenuItem(models.Model):
     # Represents an item on the restaurant menu
     name = models.CharField(max_length=100)
@@ -36,6 +39,9 @@ class MenuItem(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+    def get_absolute_url(self):
+        return '/menu/'
 
 class RecipeRequirement(models.Model):
     # Represents a required amount of an ingredient for a recipe
