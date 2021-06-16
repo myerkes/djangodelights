@@ -30,6 +30,11 @@ class MenuItemUpdate(UpdateView):
     template_name = 'inventory/menuitem_update_form.html'
     form_class = MenuItemUpdateForm
 
+class MenuItemDelete(DeleteView):
+    model = MenuItem
+    template_name = 'inventory/menuitem_delete_form.html'
+    success_url = '/menu/'
+
 ### Ingredient Views ###
 class IngredientList(ListView):
     model = Ingredient
