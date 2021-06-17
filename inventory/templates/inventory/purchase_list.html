@@ -4,9 +4,21 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            {% for purchase in purchase_list %}
-                {{ purchase.menu_item }}
-            {% endfor %}
+            <table class="table">
+                <tr>
+                    <th>Date</th>
+                    <th>Item</th>
+                    <th>Price</th>
+                </tr>
+                
+                {% for purchase in purchase_list %}
+                <tr>
+                    <td>{{ purchase.creation_date }}</td>
+                    <td>{{ purchase.menu_item }}</td>
+                    <td>$ {{ purchase.menu_item.price }}</td>
+                </tr>
+                {% endfor %}
+            </table>
         </div>
     </div>
 </div>
