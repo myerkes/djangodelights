@@ -21,6 +21,7 @@ class SignUp(CreateView):
     success_url = reverse_lazy("login")
     template_name = 'registration/signup.html'
 
+@login_required
 def logout_request(request):
   logout(request)
   return redirect("index")
@@ -66,6 +67,17 @@ class IngredientDelete(LoginRequiredMixin, DeleteView):
     model = Ingredient
     template_name = 'inventory/ingredient_delete_form.html'
     success_url = '/ingredients/'
+
+### Recipe Requirement Views ###
+class RecipeRequirementList(LoginRequiredMixin, ListView):
+    model = RecipeRequirement
+    context_object_name = 'reciperequirement_list'
+    template_name = 'inventory/reciperequirement_list.html'
+
+class RecipeRequirementCreate(LoginRequiredMixin, CreateView):
+    model = RecipeRequirement
+    template_name = 'inventory/reciperequirement_create_form.html'
+    form_class = RecipeRequirementCreateForm
 
 ### Purchase Views ###
 class PurchaseList(LoginRequiredMixin, ListView):

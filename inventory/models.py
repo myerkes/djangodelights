@@ -52,6 +52,9 @@ class RecipeRequirement(models.Model):
     def __str__(self) -> str:
         return str(self.quantity) + " - " + str(self.ingredient)
 
+    def get_absolute_url(self):
+        return '/reciperequirement/'
+
 
 class Purchase(models.Model):
     # Represents a food order from the restaurant

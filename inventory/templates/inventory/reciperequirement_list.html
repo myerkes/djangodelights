@@ -1,0 +1,32 @@
+{% extends './base.html' %}
+
+{% block content %}
+<div class="container">
+    <a class="btn btn-primary my-2" href="{% url 'reciperequirementcreate' %}">Create New Recipe Requirement</a>
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <tr>
+                    <th>Menu Item</th>
+                    <th>Ingredient</th>
+                    <th>Quantity</th>
+                    <th>Unit</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+                
+                {% for reciperequirement in reciperequirement_list %}
+                <tr>
+                    <td>{{ reciperequirement.menu_item }}</td>
+                    <td>{{ reciperequirement.ingredient }}</td>
+                    <td>{{ reciperequirement.quantity }}</td>
+                    <td>{{ reciperequirement.ingredient.unit }}</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

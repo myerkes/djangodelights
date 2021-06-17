@@ -23,6 +23,12 @@ class MenuItemUpdateForm(forms.ModelForm):
         model = MenuItem
         fields = '__all__'
 
+### Recipe Requirement Forms ###
+class RecipeRequirementCreateForm(forms.ModelForm):
+    class Meta:
+        model = RecipeRequirement
+        fields = '__all__'
+
 ### Purchase Forms ###
 class PurchaseCreateForm(forms.ModelForm):
     class Meta:
