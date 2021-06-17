@@ -6,6 +6,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('signup/', views.SignUp.as_view(), name='signup'),
     path('account/', include('django.contrib.auth.urls')),
+    path('logout/', views.logout_request, name='logout'),
     path('menu/', views.MenuItemList.as_view(), name='menu'),
     path('menu/create', views.MenuItemCreate.as_view(), name="menuitemcreate"),
     path('menu/update/<pk>', views.MenuItemUpdate.as_view(), name="menuitemupdate"),
