@@ -22,5 +22,6 @@ urlpatterns = [
     path('purchases/', views.PurchaseList.as_view(), name='purchases'),
     path('purchases/create', views.PurchaseCreate.as_view(), name='purchasecreate'),
     path('order/', views.OrderList.as_view(), name='orders'),
-    path('order/create', views.OrderCreate.as_view(), name='ordercreate')
+    path('order/create', views.OrderCreate.as_view(), name='ordercreate'),
+    path('salesreport/', views.SalesView.as_view(), name="salesreport")
 ]

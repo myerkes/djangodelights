@@ -1,4 +1,6 @@
 from typing import List
+from django.db.models import Sum
+from django.views.generic.base import TemplateView
 from inventory.models import Ingredient, MenuItem, Purchase
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
@@ -111,3 +113,23 @@ class OrderCreate(CreateView):
     template_name = 'inventory/order_create_form.html'
     form_class = OrderCreateForm
 
+### Summary Views ###
+class SalesView(LoginRequiredMixin, TemplateView):
+    template_name = 'inventory/sales_report.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["purchases"] = Purchase.objects.all()
+        revenue = Purchase.objects.aggregate(
+            revenue=Sum("menu_item__price"))["revenue"]
+        total_cost = 0
+        for purchase in Purchase.objects.all():
+            for recipe_requirement in purchase.menu_item.reciperequirement_set.all():
+                total_cost += recipe_requirement.ingredient.price_per_unit * \
+                    recipe_requirement.quantity
+
+        context["revenue"] = revenue
+        context["total_cost"] = total_cost
+        context["profit"] = revenue - total_cost
+
+        return context
