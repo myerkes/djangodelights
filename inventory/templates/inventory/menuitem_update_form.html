@@ -1,12 +1,16 @@
 {% extends './base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
-<h2>Update Menu Item</h2>
-<form method="post">
-<div>
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" value="Submit" />
+<div class="container">
+  <h2>Update Menu Item</h2>
+  <form method="post">
+  <div>
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" value="Submit" />
+  </div>
+  </form>
 </div>
-</form>
 {% endblock %}
