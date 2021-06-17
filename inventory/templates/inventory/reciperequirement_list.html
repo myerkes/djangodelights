@@ -21,8 +21,8 @@
                     <td>{{ reciperequirement.ingredient }}</td>
                     <td>{{ reciperequirement.quantity }}</td>
                     <td>{{ reciperequirement.ingredient.unit }}</td>
-                    <td></td>
-                    <td></td>
+                    <td><a class="btn btn-primary" href="./update/{{ reciperequirement.pk }}" role="button">Update</a></td>
+                    <td><a class="btn btn-primary" href="./delete/{{ reciperequirement.pk }}" role="button">Delete</a></td>
                 </tr>
                 {% endfor %}
             </table>
