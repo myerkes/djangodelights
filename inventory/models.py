@@ -43,6 +43,9 @@ class MenuItem(models.Model):
     def get_absolute_url(self):
         return '/menu/'
 
+    def available(self):
+        return all(X.enough() for X in self.reciperequirement_set.all())
+
 class RecipeRequirement(models.Model):
     # Represents a required amount of an ingredient for a recipe
     menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
@@ -54,6 +57,9 @@ class RecipeRequirement(models.Model):
 
     def get_absolute_url(self):
         return '/reciperequirement/'
+
+    def enough(self):
+        return self.quantity <= self.ingredient.quantity
 
 
 class Purchase(models.Model):
