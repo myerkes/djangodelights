@@ -1,8 +1,11 @@
-from django.urls import path
+from django.urls import path, include
+from django.contrib.auth import logout
 from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('signup/', views.SignUp.as_view(), name='signup'),
+    path('account/', include('django.contrib.auth.urls')),
     path('menu/', views.MenuItemList.as_view(), name='menu'),
     path('menu/create', views.MenuItemCreate.as_view(), name="menuitemcreate"),
     path('menu/update/<pk>', views.MenuItemUpdate.as_view(), name="menuitemupdate"),

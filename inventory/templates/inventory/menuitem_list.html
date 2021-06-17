@@ -6,7 +6,9 @@
         <div class="col">
             {% for item in menuitem_list %}
             <div class="card bg-dark text-white my-2">
-                <img class="card-img" src="{{ item.picture }}" alt="Card image" style="height: 200px; object-fit: cover;">
+                <div class="image gradient" style="background: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));">
+                    <img class="card-img" src="{{ item.picture }}" alt="Card image" style="height: 200px; object-fit: cover;">
+                </div>
                 <div class="card-img-overlay">
                 <h5 class="card-title">{{ item.name }} - ${{ item.price }}</h5>
                 <p class="card-text">{{ item.description }}</p>
