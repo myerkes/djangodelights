@@ -12,6 +12,10 @@
                 <div class="card-img-overlay">
                 <h5 class="card-title">{{ item.name }} - ${{ item.price }}</h5>
                 <p class="card-text">{{ item.description }}</p>
+                {% if user.is_authenticated %}
+                    <a class="btn btn-primary" href="./update/{{ item.pk }}" role="button">Update</a></td>
+                    <a class="btn btn-primary" href="./delete/{{ item.pk }}" role="button">Delete</a></td>
+                {% endif %}
                 </div>
             </div>
             {% endfor %}
