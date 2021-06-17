@@ -56,19 +56,22 @@ class RecipeRequirement(models.Model):
 class Purchase(models.Model):
     # Represents a food order from the restaurant
     creation_date = models.DateTimeField(default=datetime.date.today)
+    menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE, default=1)
 
     def __str__(self) -> str:
         return None
+
+    def get_absolute_url(self):
+        return '/menu/'
 
     def totalPrice(self):
         # For each Order in the Purchase, add the price of the order tot he total purchase price
-        return None
+        return self.menu_item
 
 class Order(models.Model):
     # Represents an amount of MenuItems ordered in an order
-    purchase = models.ForeignKey(Purchase, on_delete=models.CASCADE)
-    menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
-    quantity = models.IntegerField(default=1, validators=[MinValueValidator(1)]) # Number of a menu item ordered
+    #price = models.DecimalField(max_digits=7, decimal_places=2)
+    items = models.ManyToManyField('MenuItem', related_name='order', blank=True)
 
     def __str__(self) -> str:
-        return self.quantity + ' - ' + self.menu_item
+        return None

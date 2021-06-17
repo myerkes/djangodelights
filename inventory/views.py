@@ -31,45 +31,61 @@ class MenuItemList(ListView):
     context_object_name = 'menuitem_list'
     template_name = 'inventory/menuitem_list.html'
 
-class MenuItemCreate(CreateView):
+class MenuItemCreate(LoginRequiredMixin, CreateView):
     model = MenuItem
     template_name = 'inventory/menuitem_create_form.html'
     form_class = MenuItemCreateForm
 
-class MenuItemUpdate(UpdateView):
+class MenuItemUpdate(LoginRequiredMixin, UpdateView):
     model = MenuItem
     template_name = 'inventory/menuitem_update_form.html'
     form_class = MenuItemUpdateForm
 
-class MenuItemDelete(DeleteView):
+class MenuItemDelete(LoginRequiredMixin, DeleteView):
     model = MenuItem
     template_name = 'inventory/menuitem_delete_form.html'
     success_url = '/menu/'
 
 ### Ingredient Views ###
-class IngredientList(ListView):
+class IngredientList(LoginRequiredMixin, ListView):
     model = Ingredient
     context_object_name = 'ingredient_list'
     template_name = 'inventory/ingredient_list.html'
 
-class IngredientCreate(CreateView):
+class IngredientCreate(LoginRequiredMixin, CreateView):
     model = Ingredient
     template_name = 'inventory/ingredient_create_form.html'
     form_class = IngredientCreateForm
 
-class IngredientUpdate(UpdateView):
+class IngredientUpdate(LoginRequiredMixin, UpdateView):
     model = Ingredient
     template_name = 'inventory/ingredient_update_form.html'
     form_class = IngredientUpdateForm
 
-class IngredientDelete(DeleteView):
+class IngredientDelete(LoginRequiredMixin, DeleteView):
     model = Ingredient
     template_name = 'inventory/ingredient_delete_form.html'
     success_url = '/ingredients/'
 
 ### Purchase Views ###
-class PurchaseList(ListView):
+class PurchaseList(LoginRequiredMixin, ListView):
     model = Purchase
     context_object_name = 'purchase_list'
     template_name = 'inventory/purchase_list.html'
+
+class PurchaseCreate(CreateView):
+    model = Purchase
+    template_name = 'inventory/purchase_create_form.html'
+    form_class = PurchaseCreateForm
+
+### Order Views ###
+class OrderList(LoginRequiredMixin, ListView):
+    model = Order
+    context_object_name = 'order_list'
+    template_name = 'inventory/order_list.html'
+
+class OrderCreate(CreateView):
+    model = Order
+    template_name = 'inventory/order_create_form.html'
+    form_class = OrderCreateForm
 

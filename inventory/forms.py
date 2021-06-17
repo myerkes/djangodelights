@@ -22,3 +22,21 @@ class MenuItemUpdateForm(forms.ModelForm):
     class Meta:
         model = MenuItem
         fields = '__all__'
+
+### Purchase Forms ###
+class PurchaseCreateForm(forms.ModelForm):
+    class Meta:
+        model = Purchase
+        fields = '__all__'
+
+### Order Forms ###
+class OrderCreateForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = '__all__'
+
+
+    items = forms.ModelMultipleChoiceField(
+        queryset=MenuItem.objects.all(),
+        widget=forms.IntegerField
+    )

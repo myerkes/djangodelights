@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            {% for purchase in purchase_list %}
-                {{ purchase.menu_item }}
+            {% for order in order_list %}
+                {{ order.items }}
             {% endfor %}
         </div>
     </div>
