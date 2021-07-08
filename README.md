@@ -1,5 +1,5 @@
 # Django Delights
-## a Matt Yerkes portoflio project
+a Matt Yerkes portoflio project
 
 # Introduction
 This was created as an example/learning project for my personal portfolio. Django Delights is an example restaurant web-app built using the Django web framework and hosted on pythonanywhere.com. 
